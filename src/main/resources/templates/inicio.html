@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>Cadasto funcionario</title>
+</head>
+<body>
+<form method="post" action="/inicio">
+    <div th:if="${funcionario}">
+      <input type="hidden" name="id" th:value="${funcionario?.id}">
+    </div>  
+    <div class="form-group">
+      <label for="formGroupExampleInput">Nome</label>
+      <input type="text" class="form-control" id="formGroupExampleInput" name="nome" th:value="${funcionario?.nome}">
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput2">Cargo</label>
+      <input type="text" class="form-control" id="formGroupExampleInput2" name="usuario" th:value="${funcionario?.cargo}">
+    </div>
+    <div class="form-group" >
+      <label for="formGroupExampleInput3">Salario por hora</label>
+      <input type="text" class="form-control" id="formGroupExampleInput3" name="curso" th:value="${funcionario?.salporHora}">
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput4">Horas Trabalhadas</label>
+      <input type="text" class="form-control" id="formGroupExampleInput4" name="instituto" th:value="${funcionario?.horasTrab}">
+    </div>
+    <p></p>  
+    <div th:if="${funcionario}">
+      <button type="submit" class="btn btn-primary">Alterar</button>
+    </div>
+    <div th:unless="${funcionario}">
+      <button type="submit" class="btn btn-primary">Cadastrar</button>
+    </div>
+  </form>
+  </body>
+</html>
